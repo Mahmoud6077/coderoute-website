@@ -9,6 +9,7 @@ import "@fontsource/ibm-plex-sans-arabic/600.css";
 import "@fontsource/ibm-plex-sans-arabic/700.css";
 import "../globals.css";
 import { Mark, Wordmark } from "@/components/Brand";
+import BackToTop from "@/components/BackToTop";
 import ThemeToggle from "@/components/ThemeToggle";
 import { getDictionary } from "@/lib/dictionaries";
 import { isLocale, site } from "@/lib/site";
@@ -81,6 +82,7 @@ export default async function RootLayout({ children, params }: { children: React
             <div>© {new Date().getFullYear()} <span className="latin" dir="ltr">CodeRoute</span>. {t.footer.rights}</div>
           </div>
         </footer>
+        <BackToTop label={lang === "ar" ? "العودة إلى الأعلى" : "Back to top"} />
       </body>
     </html>
   );
