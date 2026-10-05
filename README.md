@@ -20,9 +20,9 @@ npm run dev                  # http://localhost:3000
 | `NEXT_PUBLIC_WHATSAPP_NUMBER` | Your WhatsApp number, digits only. Empty hides the WhatsApp button. |
 | `NEXT_PUBLIC_DEMO_WHATSAPP_NUMBER` | WhatsApp number of the demo assistant. Empty hides the whole live demo section and its menu link. The QR code is generated from it. |
 | `NEXT_PUBLIC_CONTACT_EMAIL` | Email shown in the contact section. Empty hides it. |
-| `RESEND_API_KEY` | Secret key from resend.com for sending form messages. |
+| `ZEPTOMAIL_API_KEY` | Send Mail API key from Zoho (Admin Console > Transactional Emails > agent > SMTP/API). |
 | `CONTACT_TO_EMAIL` | Inbox that receives form messages. |
-| `CONTACT_FROM_EMAIL` | Verified sender on your domain, e.g. `CodeRoute Website <website@yourdomain.com>`. |
+| `CONTACT_FROM_EMAIL` | Verified sender on your domain, e.g. `website@yourdomain.com`. |
 
 Until the three mail settings are filled in, the form tells visitors to use WhatsApp or email instead.
 
@@ -55,7 +55,7 @@ Until the three mail settings are filled in, the form tells visitors to use What
 ## Before going live
 
 - The form rate limit is kept in memory per server instance. On Vercel, also turn on the Firewall's rate limiting or bot protection for `/api/contact`.
-- Turn on two-factor authentication for GitHub, Vercel, Resend, and the domain registrar. Account takeover is the most likely way a site like this gets compromised.
+- Turn on two-factor authentication for GitHub, Vercel, Zoho, and the domain registrar. Account takeover is the most likely way a site like this gets compromised.
 - Enable Dependabot (or run `npm audit` monthly) to keep packages patched.
 - Have the privacy policy reviewed against Bahrain's Personal Data Protection Law.
 - Have a native speaker read the Arabic text once.

@@ -88,10 +88,12 @@ export async function POST(request: NextRequest) {
   const contactOk = EMAIL.test(contact) || PHONE.test(contact);
   if (name.length < 2 || !contactOk || !needOptions.includes(need)) return json({ error: "invalid" }, 400);
 
-  const apiKey = process.env.RESEND_API_KEY;
+  const apiKey = process.env.ZEPTOMAIL_API_KEY;
   const to = process.env.CONTACT_TO_EMAIL;
   const from = process.env.CONTACT_FROM_EMAIL;
   if (!apiKey || !to || !from) return json({ error: "unavailable" }, 503);
+  // Zoho shows the key with its "Zoho-enczapikey" prefix; accept it with or without.
+  const authorization = apiKey.startsWith("Zoho-enczapikey") ? apiKey : `Zoho-enczapikey ${apiKey}`;
 
   const text = [
     `New enquiry from the CodeRoute website (${lang})`,
@@ -105,16 +107,16 @@ export async function POST(request: NextRequest) {
   ].join("\n");
 
   try {
-    const res = await fetch("https://api.resend.com/emails", {
+    const res = await fetch("https://cpaas.zoho.com/v1.1/email", {
       method: "POST",
-      headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
+      headers: { Authorization: authorization, Accept: "application/json", "Content-Type": "application/json" },
       // Plain text only: nothing the visitor typed is ever rendered as HTML.
       body: JSON.stringify({
-        from,
-        to: [to],
+        from: { address: from, name: "CodeRoute Website" },
+        to: [{ email_address: { address: to, name: "CodeRoute" } }],
         subject: `Website enquiry: ${name}`,
-        text,
-        ...(EMAIL.test(contact) ? { reply_to: contact } : {}),
+        textbody: text,
+        ...(EMAIL.test(contact) ? { reply_to: [{ address: contact, name }] } : {}),
       }),
       signal: AbortSignal.timeout(10_000),
     });
