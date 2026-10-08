@@ -21,7 +21,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
 
   return (
     <>
-      <section className="container hero split center">
+      <section className="container hero split center intro">
         <div>
           <h1 className="h1">
             {t.hero.titleStart} <span className="accent">{t.hero.titleAccent}</span>
@@ -65,11 +65,11 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
 
       <section id="services" className="band">
         <div className="container section">
-          <div className="eyebrow">{t.services.eyebrow}</div>
-          <h2 className="h2">{t.services.title}</h2>
+          <div className="eyebrow" data-reveal>{t.services.eyebrow}</div>
+          <h2 className="h2" data-reveal>{t.services.title}</h2>
           <div className="grid-4">
             {t.services.items.map((item, i) => (
-              <div className="card" key={item.title}>
+              <div className="card" key={item.title} data-reveal>
                 <ServiceIcon name={serviceIcons[i]} />
                 <h3 className="h3">{item.title}</h3>
                 <p className="text">{item.text}</p>
@@ -81,11 +81,11 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
 
       {t.work.items.length > 0 && (
         <section id="work" className="container section">
-          <div className="eyebrow">{t.work.eyebrow}</div>
-          <h2 className="h2">{t.work.title}</h2>
+          <div className="eyebrow" data-reveal>{t.work.eyebrow}</div>
+          <h2 className="h2" data-reveal>{t.work.title}</h2>
           <div className="work-grid">
             {t.work.items.map((item) => (
-              <article className="work-card" key={item.url}>
+              <article className="work-card" key={item.url} data-reveal="zoom">
                 <a className="work-shot" href={item.url} target="_blank" rel="noopener noreferrer" tabIndex={-1} aria-hidden="true">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={item.image} alt="" width={800} height={600} loading="lazy" decoding="async" />
@@ -111,15 +111,15 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <section id="demo" className="demo">
           <div className="container section split center">
             <div>
-              <div className="eyebrow">{t.demo.eyebrow}</div>
-              <h2 className="h2">{t.demo.title}</h2>
-              <p className="lead">{t.demo.lead}</p>
-              <ul className="points">
+              <div className="eyebrow" data-reveal>{t.demo.eyebrow}</div>
+              <h2 className="h2" data-reveal>{t.demo.title}</h2>
+              <p className="lead" data-reveal>{t.demo.lead}</p>
+              <ul className="points" data-reveal>
                 {t.demo.points.map((point) => <li key={point}>{point}</li>)}
               </ul>
             </div>
             <div>
-              <div className="qr-card">
+              <div className="qr-card" data-reveal="zoom">
                 <div className="qr" role="img" aria-label={t.demo.qrLabel} dangerouslySetInnerHTML={{ __html: qrSvg }} />
                 <div className="qr-title">{t.demo.scan}</div>
                 <a className="btn btn-primary btn-block" href={demoUrl} target="_blank" rel="noopener noreferrer">{t.demo.open}</a>
@@ -130,11 +130,11 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       )}
 
       <section id="process" className="container section">
-        <div className="eyebrow">{t.process.eyebrow}</div>
-        <h2 className="h2">{t.process.title}</h2>
+        <div className="eyebrow" data-reveal>{t.process.eyebrow}</div>
+        <h2 className="h2" data-reveal>{t.process.title}</h2>
         <div className="grid-4">
           {t.process.steps.map((step, i) => (
-            <div className="step" key={step.title}>
+            <div className="step" key={step.title} data-reveal>
               <div className="step-num" dir="ltr">{String(i + 1).padStart(2, "0")}</div>
               <h3 className="h3">{step.title}</h3>
               <p className="text">{step.text}</p>
@@ -146,12 +146,12 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       <section className="band-tint">
         <div className="container section split">
           <div>
-            <div className="eyebrow">{t.why.eyebrow}</div>
-            <h2 className="h2">{t.why.title}</h2>
+            <div className="eyebrow" data-reveal>{t.why.eyebrow}</div>
+            <h2 className="h2" data-reveal>{t.why.title}</h2>
           </div>
           <div className="why-list">
             {t.why.items.map((item) => (
-              <div key={item.title}>
+              <div key={item.title} data-reveal>
                 <h3 className="h3">{item.title}</h3>
                 <p className="text">{item.text}</p>
               </div>
@@ -162,10 +162,10 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
 
       <section id="about" className="container section split">
         <div>
-          <div className="eyebrow">{t.about.eyebrow}</div>
-          <h2 className="h2">{t.about.title}</h2>
+          <div className="eyebrow" data-reveal>{t.about.eyebrow}</div>
+          <h2 className="h2" data-reveal>{t.about.title}</h2>
         </div>
-        <div className="prose">
+        <div className="prose" data-reveal>
           {t.about.paragraphs.map((p) => <p key={p}>{p}</p>)}
         </div>
       </section>
@@ -173,10 +173,10 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       <section id="contact" className="band">
         <div className="container section split">
           <div>
-            <div className="eyebrow">{t.contact.eyebrow}</div>
-            <h2 className="h2">{t.contact.title}</h2>
-            <p className="lead">{t.contact.lead}</p>
-            <div className="contact-links">
+            <div className="eyebrow" data-reveal>{t.contact.eyebrow}</div>
+            <h2 className="h2" data-reveal>{t.contact.title}</h2>
+            <p className="lead" data-reveal>{t.contact.lead}</p>
+            <div className="contact-links" data-reveal>
               {site.whatsapp && (
                 <a className="btn btn-outline" href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener noreferrer">{t.contact.whatsapp}</a>
               )}
@@ -185,7 +185,9 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
               )}
             </div>
           </div>
-          <ContactForm t={t.contact} lang={lang} />
+          <div data-reveal="zoom">
+            <ContactForm t={t.contact} lang={lang} />
+          </div>
         </div>
       </section>
     </>
