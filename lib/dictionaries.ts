@@ -2,10 +2,11 @@ import type { Locale, Need } from "./site";
 
 export type Dictionary = {
   meta: { title: string; description: string };
-  nav: { services: string; demo: string; process: string; about: string; otherLang: string; cta: string; main: string; theme: string };
+  nav: { services: string; work: string; demo: string; process: string; about: string; otherLang: string; cta: string; main: string; theme: string };
   hero: { titleStart: string; titleAccent: string; lead: string; primary: string; secondaryDemo: string; secondaryServices: string; facts: string };
   chat: { name: string; status: string; note: string; lines: { from: "user" | "bot"; text: string; lang: Locale }[] };
   services: { eyebrow: string; title: string; items: { title: string; text: string }[] };
+  work: { eyebrow: string; title: string; visit: string; items: { name: string; type: string; text: string; tags: string[]; url: string; image: string }[] };
   demo: { eyebrow: string; title: string; lead: string; points: string[]; scan: string; open: string; qrLabel: string };
   process: { eyebrow: string; title: string; steps: { title: string; text: string }[] };
   why: { eyebrow: string; title: string; items: { title: string; text: string }[] };
@@ -26,7 +27,7 @@ const en: Dictionary = {
     title: "CodeRoute | Websites, apps, AI assistants, and automation",
     description: "CodeRoute builds websites, mobile apps, AI assistants, and automated workflows that take the manual work off your team.",
   },
-  nav: { services: "Services", demo: "Live demo", process: "How we work", about: "About", otherLang: "العربية", cta: "Book a free call", main: "Main", theme: "Switch between light and dark mode" },
+  nav: { services: "Services", work: "Work", demo: "Live demo", process: "How we work", about: "About", otherLang: "العربية", cta: "Book a free call", main: "Main", theme: "Switch between light and dark mode" },
   hero: {
     titleStart: "Your route to",
     titleAccent: "digital.",
@@ -55,6 +56,21 @@ const en: Dictionary = {
       { title: "Workflow automation", text: "Approvals, requests, and reports that run themselves, with a clear record of who did what." },
       { title: "Websites", text: "Fast, modern sites that look right on every phone and that your team can update themselves." },
       { title: "Mobile apps", text: "iPhone and Android apps from one codebase, for booking, ordering, loyalty, or your own staff." },
+    ],
+  },
+  work: {
+    eyebrow: "Our work",
+    title: "Recent projects.",
+    visit: "Visit the site",
+    items: [
+      {
+        name: "Melyia",
+        type: "Online store",
+        text: "A bilingual online store for Malaysian raw honey, with a product catalogue, shopping cart, customer accounts, and light and dark themes.",
+        tags: ["E-commerce", "Malay and English", "Light and dark mode"],
+        url: "https://melyia-honey.byduty.workers.dev/",
+        image: "/work/melyia.jpg",
+      },
     ],
   },
   demo: {
@@ -142,7 +158,7 @@ const ar: Dictionary = {
     title: "CodeRoute | مواقع وتطبيقات ومساعدات ذكية وأتمتة",
     description: "تبني CodeRoute المواقع وتطبيقات الجوال والمساعدات الذكية وأنظمة الأتمتة التي ترفع العمل اليدوي عن فريقك.",
   },
-  nav: { services: "الخدمات", demo: "العرض الحي", process: "طريقة عملنا", about: "من نحن", otherLang: "English", cta: "احجز مكالمة مجانية", main: "القائمة الرئيسية", theme: "التبديل بين الوضع الفاتح والداكن" },
+  nav: { services: "الخدمات", work: "أعمالنا", demo: "العرض الحي", process: "طريقة عملنا", about: "من نحن", otherLang: "English", cta: "احجز مكالمة مجانية", main: "القائمة الرئيسية", theme: "التبديل بين الوضع الفاتح والداكن" },
   hero: {
     titleStart: "طريقك نحو",
     titleAccent: "التحوّل الرقمي.",
@@ -171,6 +187,21 @@ const ar: Dictionary = {
       { title: "أتمتة سير العمل", text: "موافقات وطلبات وتقارير تعمل تلقائياً، مع سجل واضح لكل إجراء ومن قام به." },
       { title: "المواقع الإلكترونية", text: "مواقع سريعة وحديثة تظهر بشكل مثالي على كل هاتف، ويستطيع فريقك تحديثها بنفسه." },
       { title: "تطبيقات الجوال", text: "تطبيقات آيفون وأندرويد من شيفرة واحدة، للحجز والطلب وبرامج الولاء أو لموظفيك." },
+    ],
+  },
+  work: {
+    eyebrow: "أعمالنا",
+    title: "مشاريع حديثة.",
+    visit: "زيارة الموقع",
+    items: [
+      {
+        name: "Melyia",
+        type: "متجر إلكتروني",
+        text: "متجر إلكتروني ثنائي اللغة لبيع العسل الماليزي الخام، يضم كتالوج منتجات وسلة مشتريات وحسابات للعملاء ووضعين فاتح وداكن.",
+        tags: ["تجارة إلكترونية", "الملايوية والإنجليزية", "وضع فاتح وداكن"],
+        url: "https://melyia-honey.byduty.workers.dev/",
+        image: "/work/melyia.jpg",
+      },
     ],
   },
   demo: {

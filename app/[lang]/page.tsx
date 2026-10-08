@@ -79,6 +79,34 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         </div>
       </section>
 
+      {t.work.items.length > 0 && (
+        <section id="work" className="container section">
+          <div className="eyebrow">{t.work.eyebrow}</div>
+          <h2 className="h2">{t.work.title}</h2>
+          <div className="work-grid">
+            {t.work.items.map((item) => (
+              <article className="work-card" key={item.url}>
+                <a className="work-shot" href={item.url} target="_blank" rel="noopener noreferrer" tabIndex={-1} aria-hidden="true">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={item.image} alt="" width={800} height={600} loading="lazy" decoding="async" />
+                </a>
+                <div className="work-body">
+                  <div className="work-type">{item.type}</div>
+                  <h3 className="h3"><span className="latin" dir="ltr">{item.name}</span></h3>
+                  <p className="text">{item.text}</p>
+                  <ul className="work-tags">
+                    {item.tags.map((tag) => <li key={tag}>{tag}</li>)}
+                  </ul>
+                  <a className="work-link" href={item.url} target="_blank" rel="noopener noreferrer">
+                    {t.work.visit} <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
+
       {demoUrl && qrSvg && (
         <section id="demo" className="demo">
           <div className="container section split center">

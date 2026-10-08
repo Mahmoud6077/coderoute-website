@@ -59,6 +59,7 @@ export default async function RootLayout({ children, params }: { children: React
           </Link>
           <nav className="nav" aria-label={t.nav.main}>
             <Link href={`/${lang}#services`}>{t.nav.services}</Link>
+            {t.work.items.length > 0 && <Link href={`/${lang}#work`}>{t.nav.work}</Link>}
             {site.demoWhatsapp && <Link href={`/${lang}#demo`}>{t.nav.demo}</Link>}
             <Link href={`/${lang}#process`}>{t.nav.process}</Link>
             <Link href={`/${lang}#about`}>{t.nav.about}</Link>
