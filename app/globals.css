@@ -1002,34 +1002,34 @@ html[lang="ar"] .work-type {
 .intro .lead,
 .intro .actions,
 .intro .facts {
-  animation: rise-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: rise-in 1.4s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .intro .lead {
-  animation-delay: 0.12s;
+  animation-delay: 0.2s;
 }
 
 .intro .actions {
-  animation-delay: 0.24s;
+  animation-delay: 0.4s;
 }
 
 .intro .facts {
-  animation-delay: 0.36s;
+  animation-delay: 0.6s;
 }
 
 .intro .chat-wrap {
-  animation: float-in 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+  animation: float-in 1.7s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both;
 }
 
 .intro .bubble {
-  animation: rise-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: rise-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-.intro .bubble:nth-child(1) { animation-delay: 0.8s; }
-.intro .bubble:nth-child(2) { animation-delay: 1.3s; }
-.intro .bubble:nth-child(3) { animation-delay: 1.8s; }
-.intro .bubble:nth-child(4) { animation-delay: 2.3s; }
-.intro .chat-note { animation: rise-in 0.6s ease 2.8s both; }
+.intro .bubble:nth-child(1) { animation-delay: 1.1s; }
+.intro .bubble:nth-child(2) { animation-delay: 1.8s; }
+.intro .bubble:nth-child(3) { animation-delay: 2.5s; }
+.intro .bubble:nth-child(4) { animation-delay: 3.2s; }
+.intro .chat-note { animation: rise-in 0.9s ease 3.9s both; }
 
 /* Hidden only once the script is running, so the page never depends on it */
 .reveal-ready [data-reveal]:not(.is-revealed) {
@@ -1043,8 +1043,8 @@ html[lang="ar"] .work-type {
 
 .reveal-ready [data-reveal] {
   transition:
-    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms),
-    transform 1.1s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms);
+    opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms),
+    transform 1.7s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms);
 }
 
 /* Where the browser supports it, the project screenshot settles into place as you scroll */

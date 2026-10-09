@@ -14,7 +14,7 @@ export default function Reveal() {
     for (const el of items) {
       const siblings = Array.from(el.parentElement?.children ?? []).filter((c) => c.hasAttribute("data-reveal"));
       const index = siblings.indexOf(el);
-      if (index > 0) el.style.setProperty("--reveal-delay", `${Math.min(index, 6) * 90}ms`);
+      if (index > 0) el.style.setProperty("--reveal-delay", `${Math.min(index, 6) * 150}ms`);
     }
 
     const observer = new IntersectionObserver(
