@@ -50,14 +50,14 @@ const en: Dictionary = {
     facts: "English and Arabic · AWS and Azure certified · Serving Bahrain and the GCC",
   },
   chat: {
-    name: "Clinic assistant",
+    name: "Dental clinic assistant",
     status: "Demo · replies in seconds",
     note: "Booking added to the clinic calendar",
     lines: [
-      { from: "user", text: "Hi, do you have an appointment tomorrow evening?", lang: "en" },
-      { from: "bot", text: "Yes. Tomorrow we have 5:30 pm and 7:00 pm free. Which one suits you?", lang: "en" },
-      { from: "user", text: "الساعة سبع زين، كم سعر التنظيف؟", lang: "ar" },
-      { from: "bot", text: "تم حجز موعدك باجر الساعة ٧ مساءً. بنرسل لك تفاصيل السعر الحين.", lang: "ar" },
+      { from: "user", text: "Hi, how much is a teeth cleaning?", lang: "en" },
+      { from: "bot", text: "Teeth cleaning is 15 BD. Would you like to book? Tomorrow evening we have 5:30 pm or 7:00 pm free.", lang: "en" },
+      { from: "user", text: "إي، الساعة سبع لو سمحت", lang: "ar" },
+      { from: "bot", text: "تم! حجزنا لك باجر الساعة ٧ مساءً، وبنرسل لك تذكير قبل الموعد بساعة.", lang: "ar" },
     ],
   },
   services: {
@@ -227,14 +227,14 @@ const ar: Dictionary = {
     facts: "بالعربية والإنجليزية · شهادات AWS و Azure · نخدم البحرين ودول الخليج",
   },
   chat: {
-    name: "مساعد العيادة",
+    name: "مساعد عيادة الأسنان",
     status: "عرض تجريبي · يرد خلال ثوانٍ",
     note: "تمت إضافة الحجز إلى تقويم العيادة",
     lines: [
-      { from: "user", text: "السلام عليكم، عندكم موعد باجر المسا؟", lang: "ar" },
-      { from: "bot", text: "وعليكم السلام! إي نعم، باجر متوفر الساعة ٥:٣٠ أو ٧:٠٠ مساءً. أي وقت يناسبك؟", lang: "ar" },
-      { from: "user", text: "7 pm works. How much is a cleaning?", lang: "en" },
-      { from: "bot", text: "You're booked for tomorrow at 7:00 pm. I'll send the price details now.", lang: "en" },
+      { from: "user", text: "السلام عليكم، كم سعر تنظيف الأسنان؟", lang: "ar" },
+      { from: "bot", text: "وعليكم السلام! تنظيف الأسنان بـ ١٥ دينار. تبي نحجز لك؟ باجر المسا متوفر ٥:٣٠ أو ٧:٠٠.", lang: "ar" },
+      { from: "user", text: "7 pm please.", lang: "en" },
+      { from: "bot", text: "Done! You're booked for tomorrow at 7:00 pm. We'll send you a reminder an hour before.", lang: "en" },
     ],
   },
   services: {
