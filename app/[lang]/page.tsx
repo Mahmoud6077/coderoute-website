@@ -88,6 +88,13 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                 <p className="text">{item.text}</p>
               </div>
             ))}
+            <div className="card more-card" data-reveal>
+              <h3 className="h3">{t.services.more.title}</h3>
+              <p className="text">{t.services.more.text}</p>
+              <ul className="work-tags">
+                {t.services.more.tags.map((tag) => <li key={tag}>{tag}</li>)}
+              </ul>
+            </div>
           </div>
         </div>
       </section>

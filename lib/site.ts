@@ -21,5 +21,5 @@ export const social = {
   facebook: "https://www.facebook.com/profile.php?id=61595017511713",
 } as const;
 
-export const needOptions = ["assistant", "automation", "website", "app", "unsure"] as const;
+export const needOptions = ["assistant", "automation", "website", "app", "other", "unsure"] as const;
 export type Need = (typeof needOptions)[number];

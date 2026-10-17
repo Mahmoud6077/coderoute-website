@@ -526,6 +526,20 @@ html[lang="ar"] .facts {
   padding: 28px;
 }
 
+.grid-4 > .more-card {
+  flex-basis: 100%;
+  border-style: dashed;
+  border-color: var(--input-border);
+}
+
+.more-card .h3 {
+  margin-top: 0;
+}
+
+.more-card .text {
+  max-width: 720px;
+}
+
 .service-icon {
   color: var(--brand-text);
 }

@@ -5,7 +5,7 @@ export type Dictionary = {
   nav: { services: string; work: string; demo: string; process: string; about: string; otherLang: string; cta: string; main: string; theme: string };
   hero: { eyebrow: string; titleStart: string; titleAccent: string; lead: string; primary: string; secondaryDemo: string; secondaryServices: string; facts: string };
   chat: { name: string; status: string; note: string; lines: { from: "user" | "bot"; text: string; lang: Locale }[] };
-  services: { eyebrow: string; title: string; items: { title: string; text: string }[] };
+  services: { eyebrow: string; title: string; items: { title: string; text: string }[]; more: { title: string; text: string; tags: string[] } };
   work: { eyebrow: string; title: string; visit: string; items: { name: string; type: string; text: string; tags: string[]; url: string; image: string }[] };
   demo: { eyebrow: string; title: string; lead: string; points: string[]; scan: string; open: string; qrLabel: string };
   process: { eyebrow: string; title: string; steps: { title: string; text: string }[] };
@@ -62,13 +62,18 @@ const en: Dictionary = {
   },
   services: {
     eyebrow: "What we do",
-    title: "Four services. One team that builds them all.",
+    title: "Everything digital. One team that builds it all.",
     items: [
       { title: "AI chatbots and assistants", text: "WhatsApp and website chatbots that answer customers day and night, in English and Arabic, and take bookings and orders." },
       { title: "Workflow automation", text: "Business process automation for approvals, requests, and reports, with a clear record of who did what." },
       { title: "Website design and development", text: "Fast, modern company websites and online stores that look right on every phone and that your team can update themselves." },
       { title: "Mobile app development", text: "iPhone and Android apps from one codebase, for booking, ordering, loyalty, or your own staff." },
     ],
+    more: {
+      title: "Custom software and more",
+      text: "Have something else in mind? If it's digital, we can build it. Tell us the problem, and we'll build the route.",
+      tags: ["Internal systems (inventory, HR, booking)", "Dashboards and reports", "System integrations and APIs", "UI/UX design", "Maintenance and support for existing systems"],
+    },
   },
   work: {
     eyebrow: "Our work",
@@ -137,7 +142,7 @@ const en: Dictionary = {
     need: "What do you need help with?",
     message: "Tell us a little more",
     messagePh: "We answer the same customer questions on WhatsApp all day",
-    needs: { assistant: "AI assistant or chatbot", automation: "Workflow automation", website: "Website", app: "Mobile app", unsure: "Not sure yet" },
+    needs: { assistant: "AI assistant or chatbot", automation: "Workflow automation", website: "Website", app: "Mobile app", other: "Something else", unsure: "Not sure yet" },
     send: "Send message",
     sending: "Sending…",
     success: "Message sent. We'll get back to you within one working day.",
@@ -160,6 +165,7 @@ const en: Dictionary = {
       { q: "Will we own the website, app, and code?", a: "Yes. Once the project is paid, the code, designs, domain, and accounts are yours. We set them up in your name from the start." },
       { q: "Can you redesign or improve our existing website or system?", a: "Yes. We can redesign an existing website, make it faster, add features, connect it to your other systems, or automate the manual steps around it." },
       { q: "What happens after launch?", a: "We train your team and hand over full documentation. Optional monthly support plans cover hosting, security updates, backups, and small improvements." },
+      { q: "Do you only do these four services?", a: "No. These are what we're asked for most, but we build any digital solution: internal systems, dashboards, integrations, and more. Tell us the problem, and we'll suggest the right solution." },
       { q: "Do you work with businesses outside Bahrain?", a: "Yes. We work with clients across the Gulf and beyond, on site or remotely." },
       { q: "Will you sign an NDA?", a: "Yes. We're happy to sign a non-disclosure agreement before you share any details about your business or your idea." },
     ],
@@ -239,13 +245,18 @@ const ar: Dictionary = {
   },
   services: {
     eyebrow: "ماذا نقدّم",
-    title: "أربع خدمات. وفريق واحد ينفّذها كلها.",
+    title: "كل ما هو رقمي. وفريق واحد ينفّذه كله.",
     items: [
       { title: "شات بوت ومساعدات ذكية", text: "روبوتات محادثة على واتساب وموقعك ترد على عملائك على مدار الساعة بالعربية والإنجليزية، وتستقبل الحجوزات والطلبات." },
       { title: "أتمتة سير العمل", text: "أتمتة إجراءات العمل من موافقات وطلبات وتقارير، مع سجل واضح لكل إجراء ومن قام به." },
       { title: "تصميم وبرمجة المواقع", text: "مواقع شركات ومتاجر إلكترونية سريعة وحديثة تظهر بشكل مثالي على كل هاتف، ويستطيع فريقك تحديثها بنفسه." },
       { title: "برمجة تطبيقات الجوال", text: "تطبيقات آيفون وأندرويد من شيفرة واحدة، للحجز والطلب وبرامج الولاء أو لموظفيك." },
     ],
+    more: {
+      title: "برمجيات خاصة والمزيد",
+      text: "لديك فكرة أخرى؟ إذا كانت رقمية فنستطيع بناءها. أخبرنا بالمشكلة، ونحن نرسم لك الطريق.",
+      tags: ["أنظمة داخلية (المخزون، الموارد البشرية، الحجوزات)", "لوحات المتابعة والتقارير", "ربط الأنظمة وواجهات API", "تصميم واجهات وتجربة المستخدم", "صيانة ودعم الأنظمة الحالية"],
+    },
   },
   work: {
     eyebrow: "أعمالنا",
@@ -314,7 +325,7 @@ const ar: Dictionary = {
     need: "بماذا نساعدك؟",
     message: "أخبرنا أكثر",
     messagePh: "نجيب عن الأسئلة نفسها على واتساب طوال اليوم",
-    needs: { assistant: "مساعد ذكي أو روبوت محادثة", automation: "أتمتة سير العمل", website: "موقع إلكتروني", app: "تطبيق جوال", unsure: "لست متأكداً بعد" },
+    needs: { assistant: "مساعد ذكي أو روبوت محادثة", automation: "أتمتة سير العمل", website: "موقع إلكتروني", app: "تطبيق جوال", other: "شيء آخر", unsure: "لست متأكداً بعد" },
     send: "إرسال الرسالة",
     sending: "جارٍ الإرسال…",
     success: "تم إرسال رسالتك. سنرد عليك خلال يوم عمل واحد.",
@@ -337,6 +348,7 @@ const ar: Dictionary = {
       { q: "هل سنملك الموقع والتطبيق والشيفرة؟", a: "نعم. بعد سداد قيمة المشروع تصبح الشيفرة والتصاميم والنطاق والحسابات ملكاً لك، ونسجلها باسمك من البداية." },
       { q: "هل يمكنكم تطوير موقعنا أو نظامنا الحالي؟", a: "نعم. يمكننا إعادة تصميم موقعك الحالي، وتسريعه، وإضافة مزايا جديدة، وربطه بأنظمتك الأخرى، أو أتمتة الخطوات اليدوية المرتبطة به." },
       { q: "ماذا يحدث بعد الإطلاق؟", a: "ندرّب فريقك ونسلّمك التوثيق الكامل. وتشمل خطط الدعم الشهرية الاختيارية الاستضافة والتحديثات الأمنية والنسخ الاحتياطي والتحسينات الصغيرة." },
+      { q: "هل تقتصر خدماتكم على هذه الخدمات الأربع؟", a: "لا. هذه هي الخدمات الأكثر طلباً، لكننا نبني أي حل رقمي: أنظمة داخلية ولوحات متابعة وربط الأنظمة وغير ذلك. أخبرنا بالمشكلة، وسنقترح عليك الحل المناسب." },
       { q: "هل تعملون مع شركات خارج البحرين؟", a: "نعم. نعمل مع عملاء في دول الخليج وخارجها، حضورياً أو عن بُعد." },
       { q: "هل توقّعون اتفاقية عدم إفصاح؟", a: "نعم. يسعدنا توقيع اتفاقية عدم إفصاح قبل أن تشاركنا أي تفاصيل عن عملك أو فكرتك." },
     ],
