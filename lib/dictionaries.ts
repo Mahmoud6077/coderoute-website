@@ -29,12 +29,12 @@ export type LegalPage = { title: string; description: string; updated: string; b
 
 const en: Dictionary = {
   meta: {
-    title: "CodeRoute | Web Design, App Development and AI Chatbots",
-    description: "Website design, online stores, iPhone and Android apps, WhatsApp AI chatbots and workflow automation, in English and Arabic. Book a free consultation.",
+    title: "CodeRoute | Web Design, Apps and AI Chatbots in Bahrain",
+    description: "Website design, online stores, iPhone and Android apps, WhatsApp AI chatbots and workflow automation for businesses in Bahrain and the Gulf, in English and Arabic.",
     keywords: [
       "web design", "website design", "website development", "web development company", "company website", "e-commerce website", "online store",
       "mobile app development", "iPhone app", "Android app", "app developer", "AI chatbot", "WhatsApp chatbot", "WhatsApp Business API", "AI assistant",
-      "workflow automation", "business process automation", "custom software", "software company", "digital transformation", "Arabic website", "bilingual website",
+      "workflow automation", "business process automation", "custom software", "software company", "digital transformation", "Arabic website", "bilingual website", "web design Bahrain", "website design Bahrain", "app development Bahrain", "software company Bahrain", "web design GCC",
     ],
     ogAlt: "CodeRoute: Your route to digital. Websites, mobile apps, AI chatbots and workflow automation.",
   },
@@ -47,7 +47,7 @@ const en: Dictionary = {
     primary: "Book a free call",
     secondaryDemo: "Try the live demo",
     secondaryServices: "See what we do",
-    facts: "English and Arabic · AWS and Azure certified · You talk to the engineers",
+    facts: "English and Arabic · AWS and Azure certified · Serving Bahrain and the GCC",
   },
   chat: {
     name: "Clinic assistant",
@@ -160,6 +160,7 @@ const en: Dictionary = {
       { q: "Will we own the website, app, and code?", a: "Yes. Once the project is paid, the code, designs, domain, and accounts are yours. We set them up in your name from the start." },
       { q: "Can you redesign or improve our existing website or system?", a: "Yes. We can redesign an existing website, make it faster, add features, connect it to your other systems, or automate the manual steps around it." },
       { q: "What happens after launch?", a: "We train your team and hand over full documentation. Optional monthly support plans cover hosting, security updates, backups, and small improvements." },
+      { q: "Do you work with businesses outside Bahrain?", a: "Yes. We work with clients across the Gulf and beyond, on site or remotely." },
       { q: "Will you sign an NDA?", a: "Yes. We're happy to sign a non-disclosure agreement before you share any details about your business or your idea." },
     ],
   },
@@ -205,12 +206,12 @@ const en: Dictionary = {
 
 const ar: Dictionary = {
   meta: {
-    title: "CodeRoute | تصميم مواقع وبرمجة تطبيقات وشات بوت ذكي",
-    description: "تصميم وبرمجة المواقع والمتاجر الإلكترونية وتطبيقات آيفون وأندرويد، وشات بوت واتساب بالذكاء الاصطناعي وأتمتة سير العمل، بالعربية والإنجليزية. احجز استشارة مجانية.",
+    title: "CodeRoute | تصميم مواقع وبرمجة تطبيقات وشات بوت ذكي في البحرين",
+    description: "تصميم وبرمجة المواقع والمتاجر الإلكترونية وتطبيقات آيفون وأندرويد، وشات بوت واتساب بالذكاء الاصطناعي وأتمتة سير العمل للشركات في البحرين والخليج، بالعربية والإنجليزية.",
     keywords: [
       "تصميم مواقع", "تصميم مواقع إلكترونية", "برمجة مواقع", "تصميم موقع شركة", "شركة تصميم مواقع", "شركة برمجة", "تصميم متجر إلكتروني", "متجر إلكتروني",
       "برمجة تطبيقات", "تصميم تطبيقات", "تطبيقات الجوال", "تطبيق آيفون", "تطبيق أندرويد", "شات بوت", "شات بوت واتساب", "روبوت محادثة", "مساعد ذكي",
-      "الذكاء الاصطناعي", "أتمتة الأعمال", "أتمتة سير العمل", "أنظمة إدارة", "برمجيات خاصة", "التحول الرقمي", "موقع عربي",
+      "الذكاء الاصطناعي", "أتمتة الأعمال", "أتمتة سير العمل", "أنظمة إدارة", "برمجيات خاصة", "التحول الرقمي", "موقع عربي", "تصميم مواقع البحرين", "شركة تصميم مواقع في البحرين", "برمجة تطبيقات البحرين", "شركة برمجة في البحرين", "تصميم مواقع الخليج",
     ],
     ogAlt: "CodeRoute: طريقك نحو التحوّل الرقمي. مواقع إلكترونية وتطبيقات جوال ومساعدات ذكية وأتمتة سير العمل.",
   },
@@ -223,7 +224,7 @@ const ar: Dictionary = {
     primary: "احجز مكالمة مجانية",
     secondaryDemo: "جرّب العرض الحي",
     secondaryServices: "تعرّف على خدماتنا",
-    facts: "بالعربية والإنجليزية · شهادات AWS و Azure · تتحدث مباشرة مع المهندسين",
+    facts: "بالعربية والإنجليزية · شهادات AWS و Azure · نخدم البحرين ودول الخليج",
   },
   chat: {
     name: "مساعد العيادة",
@@ -336,6 +337,7 @@ const ar: Dictionary = {
       { q: "هل سنملك الموقع والتطبيق والشيفرة؟", a: "نعم. بعد سداد قيمة المشروع تصبح الشيفرة والتصاميم والنطاق والحسابات ملكاً لك، ونسجلها باسمك من البداية." },
       { q: "هل يمكنكم تطوير موقعنا أو نظامنا الحالي؟", a: "نعم. يمكننا إعادة تصميم موقعك الحالي، وتسريعه، وإضافة مزايا جديدة، وربطه بأنظمتك الأخرى، أو أتمتة الخطوات اليدوية المرتبطة به." },
       { q: "ماذا يحدث بعد الإطلاق؟", a: "ندرّب فريقك ونسلّمك التوثيق الكامل. وتشمل خطط الدعم الشهرية الاختيارية الاستضافة والتحديثات الأمنية والنسخ الاحتياطي والتحسينات الصغيرة." },
+      { q: "هل تعملون مع شركات خارج البحرين؟", a: "نعم. نعمل مع عملاء في دول الخليج وخارجها، حضورياً أو عن بُعد." },
       { q: "هل توقّعون اتفاقية عدم إفصاح؟", a: "نعم. يسعدنا توقيع اتفاقية عدم إفصاح قبل أن تشاركنا أي تفاصيل عن عملك أو فكرتك." },
     ],
   },

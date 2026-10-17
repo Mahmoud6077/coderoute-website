@@ -86,6 +86,14 @@ export default async function RootLayout({ children, params }: { children: React
         ...(site.whatsapp ? { telephone: `+${site.whatsapp}` } : {}),
         sameAs: Object.values(social),
         knowsLanguage: ["en", "ar"],
+        areaServed: [
+          { "@type": "Country", name: "Bahrain" },
+          { "@type": "Country", name: "Saudi Arabia" },
+          { "@type": "Country", name: "United Arab Emirates" },
+          { "@type": "Country", name: "Kuwait" },
+          { "@type": "Country", name: "Qatar" },
+          { "@type": "Country", name: "Oman" },
+        ],
         knowsAbout: ["Web design", "Website development", "E-commerce", "Mobile app development", "AI chatbots", "WhatsApp Business API", "Workflow automation", "Cloud computing"],
         hasOfferCatalog: {
           "@type": "OfferCatalog",
