@@ -1,0 +1,18 @@
+import type { MetadataRoute } from "next";
+
+export default function manifest(): MetadataRoute.Manifest {
+  return {
+    name: "CodeRoute",
+    short_name: "CodeRoute",
+    description: "Websites, mobile apps, AI chatbots and workflow automation.",
+    start_url: "/",
+    display: "browser",
+    background_color: "#14213d",
+    theme_color: "#14213d",
+    icons: [
+      { src: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { src: "/icon-512.png", sizes: "512x512", type: "image/png" },
+      { src: "/icon-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
+    ],
+  };
+}

@@ -1,9 +1,9 @@
 import type { Locale, Need } from "./site";
 
 export type Dictionary = {
-  meta: { title: string; description: string };
+  meta: { title: string; description: string; keywords: string[]; ogAlt: string };
   nav: { services: string; work: string; demo: string; process: string; about: string; otherLang: string; cta: string; main: string; theme: string };
-  hero: { titleStart: string; titleAccent: string; lead: string; primary: string; secondaryDemo: string; secondaryServices: string; facts: string };
+  hero: { eyebrow: string; titleStart: string; titleAccent: string; lead: string; primary: string; secondaryDemo: string; secondaryServices: string; facts: string };
   chat: { name: string; status: string; note: string; lines: { from: "user" | "bot"; text: string; lang: Locale }[] };
   services: { eyebrow: string; title: string; items: { title: string; text: string }[] };
   work: { eyebrow: string; title: string; visit: string; items: { name: string; type: string; text: string; tags: string[]; url: string; image: string }[] };
@@ -18,17 +18,29 @@ export type Dictionary = {
     errors: { invalid: string; rate: string; unavailable: string; generic: string };
     privacyNote: string;
   };
-  footer: { services: string; contact: string; privacy: string; rights: string; label: string };
-  privacy: { title: string; updated: string; back: string; sections: { heading: string; body: string[] }[] };
+  faq: { eyebrow: string; title: string; items: { q: string; a: string }[] };
+  footer: { services: string; faq: string; contact: string; privacy: string; terms: string; rights: string; label: string; social: string; follow: { linkedin: string; instagram: string; facebook: string } };
+  privacy: LegalPage;
+  terms: LegalPage;
+  notFound: { title: string; text: string; home: string };
 };
+
+export type LegalPage = { title: string; description: string; updated: string; back: string; sections: { heading: string; body: string[] }[] };
 
 const en: Dictionary = {
   meta: {
-    title: "CodeRoute | Websites, apps, AI assistants, and automation",
-    description: "CodeRoute builds websites, mobile apps, AI assistants, and automated workflows that take the manual work off your team.",
+    title: "CodeRoute | Web Design, App Development and AI Chatbots",
+    description: "Website design, online stores, iPhone and Android apps, WhatsApp AI chatbots and workflow automation, in English and Arabic. Book a free consultation.",
+    keywords: [
+      "web design", "website design", "website development", "web development company", "company website", "e-commerce website", "online store",
+      "mobile app development", "iPhone app", "Android app", "app developer", "AI chatbot", "WhatsApp chatbot", "WhatsApp Business API", "AI assistant",
+      "workflow automation", "business process automation", "custom software", "software company", "digital transformation", "Arabic website", "bilingual website",
+    ],
+    ogAlt: "CodeRoute: Your route to digital. Websites, mobile apps, AI chatbots and workflow automation.",
   },
   nav: { services: "Services", work: "Work", demo: "Live demo", process: "How we work", about: "About", otherLang: "العربية", cta: "Book a free call", main: "Main", theme: "Switch between light and dark mode" },
   hero: {
+    eyebrow: "Web design · App development · AI chatbots · Automation",
     titleStart: "Your route to",
     titleAccent: "digital.",
     lead: "We build websites, apps, AI assistants, and automated workflows that take the manual work off your team and keep your business moving.",
@@ -52,10 +64,10 @@ const en: Dictionary = {
     eyebrow: "What we do",
     title: "Four services. One team that builds them all.",
     items: [
-      { title: "AI assistants and chatbots", text: "Answer customers on WhatsApp or your website, day and night, in English and Arabic." },
-      { title: "Workflow automation", text: "Approvals, requests, and reports that run themselves, with a clear record of who did what." },
-      { title: "Websites", text: "Fast, modern sites that look right on every phone and that your team can update themselves." },
-      { title: "Mobile apps", text: "iPhone and Android apps from one codebase, for booking, ordering, loyalty, or your own staff." },
+      { title: "AI chatbots and assistants", text: "WhatsApp and website chatbots that answer customers day and night, in English and Arabic, and take bookings and orders." },
+      { title: "Workflow automation", text: "Business process automation for approvals, requests, and reports, with a clear record of who did what." },
+      { title: "Website design and development", text: "Fast, modern company websites and online stores that look right on every phone and that your team can update themselves." },
+      { title: "Mobile app development", text: "iPhone and Android apps from one codebase, for booking, ordering, loyalty, or your own staff." },
     ],
   },
   work: {
@@ -137,9 +149,47 @@ const en: Dictionary = {
     },
     privacyNote: "We use your details only to reply to you.",
   },
-  footer: { services: "Services", contact: "Contact", privacy: "Privacy policy", rights: "All rights reserved.", label: "Footer" },
+  faq: {
+    eyebrow: "FAQ",
+    title: "Questions we hear often.",
+    items: [
+      { q: "How much does a website or app cost?", a: "It depends on what it needs to do. After a free call, we send a written proposal with a fixed price, scope, and timeline, so you know the full cost before any work starts. There are no hidden fees." },
+      { q: "How long does it take to build?", a: "A company website usually takes 2 to 4 weeks, an online store 4 to 8 weeks, and a WhatsApp AI assistant 2 to 4 weeks. Mobile apps and custom systems typically take 2 to 4 months. Your proposal includes an exact timeline." },
+      { q: "Can you build a WhatsApp chatbot that speaks Arabic and English?", a: "Yes. We build AI assistants on the official WhatsApp Business platform and on websites. They answer from your own prices and FAQs, take bookings and orders, switch between Arabic and English, and hand the chat to your team when a person is needed." },
+      { q: "Do you build iPhone and Android apps?", a: "Yes. We build apps for iPhone and Android from one codebase, which keeps the cost and maintenance down, and we publish them to the App Store and Google Play for you." },
+      { q: "Will we own the website, app, and code?", a: "Yes. Once the project is paid, the code, designs, domain, and accounts are yours. We set them up in your name from the start." },
+      { q: "Can you redesign or improve our existing website or system?", a: "Yes. We can redesign an existing website, make it faster, add features, connect it to your other systems, or automate the manual steps around it." },
+      { q: "What happens after launch?", a: "We train your team and hand over full documentation. Optional monthly support plans cover hosting, security updates, backups, and small improvements." },
+      { q: "Will you sign an NDA?", a: "Yes. We're happy to sign a non-disclosure agreement before you share any details about your business or your idea." },
+    ],
+  },
+  footer: {
+    services: "Services", faq: "FAQ", contact: "Contact", privacy: "Privacy policy", terms: "Terms of service", rights: "All rights reserved.", label: "Footer",
+    social: "Social media", follow: { linkedin: "CodeRoute on LinkedIn", instagram: "CodeRoute on Instagram", facebook: "CodeRoute on Facebook" },
+  },
+  notFound: { title: "Page not found", text: "The page you're looking for doesn't exist or has moved.", home: "Back to the homepage" },
+  terms: {
+    title: "Terms of service",
+    description: "The terms that apply when you use the CodeRoute website.",
+    updated: "Last updated: October 2026",
+    back: "Back to the homepage",
+    sections: [
+      { heading: "About these terms", body: ["These terms apply to your use of coderoutebh.com. By using the site, you agree to them."] },
+      { heading: "Our services", body: ["This site describes our services in general. Any project we do for you is covered by a separate written proposal or agreement that sets out the scope, price, timeline, payment terms, and ownership. If that agreement differs from these terms, the agreement applies."] },
+      { heading: "Prices and timelines", body: ["Timelines, examples, and descriptions on this site are general guidance, not an offer. A price or timeline is binding only once it's in a written proposal accepted by both sides."] },
+      { heading: "Our content and brand", body: ["The content, design, logo, and CodeRoute name on this site belong to us. You're welcome to share links to the site, but don't copy or reuse its content or branding without our written permission. Client projects shown here belong to their owners and are shown with their permission."] },
+      { heading: "Using the site", body: ["Don't misuse the site, for example by trying to break its security, overloading it, or sending spam through the contact form."] },
+      { heading: "Links to other sites", body: ["The site links to other websites, such as projects we've built and our social media pages. We aren't responsible for their content or for how they handle your data."] },
+      { heading: "No guarantee", body: ["We work to keep the site accurate and available, but it's provided as it is, and we can't guarantee it will always be error-free or uninterrupted."] },
+      { heading: "Liability", body: ["As far as the law allows, we aren't liable for any loss that results from using this website. This doesn't limit anything agreed in a signed project agreement."] },
+      { heading: "Privacy", body: ["How we handle the details you send us is explained in our privacy policy."] },
+      { heading: "Changes", body: ["We may update these terms from time to time. The date at the top shows the latest version."] },
+      { heading: "Contact", body: ["Questions about these terms? Contact us using the details on the homepage."] },
+    ],
+  },
   privacy: {
     title: "Privacy policy",
+    description: "How CodeRoute handles the details you send through this website.",
     updated: "Last updated: October 2026",
     back: "Back to the homepage",
     sections: [
@@ -155,11 +205,18 @@ const en: Dictionary = {
 
 const ar: Dictionary = {
   meta: {
-    title: "CodeRoute | مواقع وتطبيقات ومساعدات ذكية وأتمتة",
-    description: "تبني CodeRoute المواقع وتطبيقات الجوال والمساعدات الذكية وأنظمة الأتمتة التي ترفع العمل اليدوي عن فريقك.",
+    title: "CodeRoute | تصميم مواقع وبرمجة تطبيقات وشات بوت ذكي",
+    description: "تصميم وبرمجة المواقع والمتاجر الإلكترونية وتطبيقات آيفون وأندرويد، وشات بوت واتساب بالذكاء الاصطناعي وأتمتة سير العمل، بالعربية والإنجليزية. احجز استشارة مجانية.",
+    keywords: [
+      "تصميم مواقع", "تصميم مواقع إلكترونية", "برمجة مواقع", "تصميم موقع شركة", "شركة تصميم مواقع", "شركة برمجة", "تصميم متجر إلكتروني", "متجر إلكتروني",
+      "برمجة تطبيقات", "تصميم تطبيقات", "تطبيقات الجوال", "تطبيق آيفون", "تطبيق أندرويد", "شات بوت", "شات بوت واتساب", "روبوت محادثة", "مساعد ذكي",
+      "الذكاء الاصطناعي", "أتمتة الأعمال", "أتمتة سير العمل", "أنظمة إدارة", "برمجيات خاصة", "التحول الرقمي", "موقع عربي",
+    ],
+    ogAlt: "CodeRoute: طريقك نحو التحوّل الرقمي. مواقع إلكترونية وتطبيقات جوال ومساعدات ذكية وأتمتة سير العمل.",
   },
   nav: { services: "الخدمات", work: "أعمالنا", demo: "العرض الحي", process: "طريقة عملنا", about: "من نحن", otherLang: "English", cta: "احجز مكالمة مجانية", main: "القائمة الرئيسية", theme: "التبديل بين الوضع الفاتح والداكن" },
   hero: {
+    eyebrow: "تصميم المواقع · برمجة التطبيقات · الشات بوت · الأتمتة",
     titleStart: "طريقك نحو",
     titleAccent: "التحوّل الرقمي.",
     lead: "نبني المواقع والتطبيقات والمساعدات الذكية وأنظمة الأتمتة التي ترفع العمل اليدوي عن فريقك وتُبقي أعمالك في حركة مستمرة.",
@@ -183,10 +240,10 @@ const ar: Dictionary = {
     eyebrow: "ماذا نقدّم",
     title: "أربع خدمات. وفريق واحد ينفّذها كلها.",
     items: [
-      { title: "المساعدات الذكية وروبوتات المحادثة", text: "نرد على عملائك عبر واتساب أو موقعك على مدار الساعة، بالعربية والإنجليزية." },
-      { title: "أتمتة سير العمل", text: "موافقات وطلبات وتقارير تعمل تلقائياً، مع سجل واضح لكل إجراء ومن قام به." },
-      { title: "المواقع الإلكترونية", text: "مواقع سريعة وحديثة تظهر بشكل مثالي على كل هاتف، ويستطيع فريقك تحديثها بنفسه." },
-      { title: "تطبيقات الجوال", text: "تطبيقات آيفون وأندرويد من شيفرة واحدة، للحجز والطلب وبرامج الولاء أو لموظفيك." },
+      { title: "شات بوت ومساعدات ذكية", text: "روبوتات محادثة على واتساب وموقعك ترد على عملائك على مدار الساعة بالعربية والإنجليزية، وتستقبل الحجوزات والطلبات." },
+      { title: "أتمتة سير العمل", text: "أتمتة إجراءات العمل من موافقات وطلبات وتقارير، مع سجل واضح لكل إجراء ومن قام به." },
+      { title: "تصميم وبرمجة المواقع", text: "مواقع شركات ومتاجر إلكترونية سريعة وحديثة تظهر بشكل مثالي على كل هاتف، ويستطيع فريقك تحديثها بنفسه." },
+      { title: "برمجة تطبيقات الجوال", text: "تطبيقات آيفون وأندرويد من شيفرة واحدة، للحجز والطلب وبرامج الولاء أو لموظفيك." },
     ],
   },
   work: {
@@ -268,9 +325,47 @@ const ar: Dictionary = {
     },
     privacyNote: "نستخدم بياناتك للرد عليك فقط.",
   },
-  footer: { services: "الخدمات", contact: "تواصل معنا", privacy: "سياسة الخصوصية", rights: "جميع الحقوق محفوظة.", label: "روابط التذييل" },
+  faq: {
+    eyebrow: "الأسئلة الشائعة",
+    title: "أسئلة نسمعها كثيراً.",
+    items: [
+      { q: "كم تكلفة تصميم موقع أو تطبيق؟", a: "تعتمد التكلفة على ما يحتاج إليه المشروع. بعد مكالمة مجانية نرسل لك عرضاً مكتوباً بسعر ثابت ونطاق عمل وجدول زمني محدد، لتعرف التكلفة الكاملة قبل بدء أي عمل، ومن دون أي رسوم خفية." },
+      { q: "كم يستغرق تنفيذ المشروع؟", a: "يستغرق موقع الشركة عادةً من أسبوعين إلى أربعة أسابيع، والمتجر الإلكتروني من أربعة إلى ثمانية أسابيع، والمساعد الذكي على واتساب من أسبوعين إلى أربعة أسابيع. أما تطبيقات الجوال والأنظمة الخاصة فتستغرق عادةً من شهرين إلى أربعة أشهر. ويتضمن العرض جدولاً زمنياً دقيقاً." },
+      { q: "هل تبنون شات بوت على واتساب يتحدث العربية والإنجليزية؟", a: "نعم. نبني المساعدات الذكية على منصة واتساب للأعمال الرسمية وعلى المواقع الإلكترونية. تجيب من أسعارك وأسئلتك الشائعة، وتستقبل الحجوزات والطلبات، وتنتقل بين العربية والإنجليزية، وتحوّل المحادثة إلى فريقك عند الحاجة إلى موظف." },
+      { q: "هل تبرمجون تطبيقات آيفون وأندرويد؟", a: "نعم. نبني تطبيقات آيفون وأندرويد من شيفرة واحدة، مما يخفض التكلفة والصيانة، وننشرها لك على متجر App Store و Google Play." },
+      { q: "هل سنملك الموقع والتطبيق والشيفرة؟", a: "نعم. بعد سداد قيمة المشروع تصبح الشيفرة والتصاميم والنطاق والحسابات ملكاً لك، ونسجلها باسمك من البداية." },
+      { q: "هل يمكنكم تطوير موقعنا أو نظامنا الحالي؟", a: "نعم. يمكننا إعادة تصميم موقعك الحالي، وتسريعه، وإضافة مزايا جديدة، وربطه بأنظمتك الأخرى، أو أتمتة الخطوات اليدوية المرتبطة به." },
+      { q: "ماذا يحدث بعد الإطلاق؟", a: "ندرّب فريقك ونسلّمك التوثيق الكامل. وتشمل خطط الدعم الشهرية الاختيارية الاستضافة والتحديثات الأمنية والنسخ الاحتياطي والتحسينات الصغيرة." },
+      { q: "هل توقّعون اتفاقية عدم إفصاح؟", a: "نعم. يسعدنا توقيع اتفاقية عدم إفصاح قبل أن تشاركنا أي تفاصيل عن عملك أو فكرتك." },
+    ],
+  },
+  footer: {
+    services: "الخدمات", faq: "الأسئلة الشائعة", contact: "تواصل معنا", privacy: "سياسة الخصوصية", terms: "شروط الاستخدام", rights: "جميع الحقوق محفوظة.", label: "روابط التذييل",
+    social: "وسائل التواصل الاجتماعي", follow: { linkedin: "CodeRoute على لينكدإن", instagram: "CodeRoute على إنستغرام", facebook: "CodeRoute على فيسبوك" },
+  },
+  notFound: { title: "الصفحة غير موجودة", text: "الصفحة التي تبحث عنها غير موجودة أو تم نقلها.", home: "العودة إلى الصفحة الرئيسية" },
+  terms: {
+    title: "شروط الاستخدام",
+    description: "الشروط التي تنطبق عند استخدامك لموقع CodeRoute.",
+    updated: "آخر تحديث: أكتوبر 2026",
+    back: "العودة إلى الصفحة الرئيسية",
+    sections: [
+      { heading: "حول هذه الشروط", body: ["تنطبق هذه الشروط على استخدامك لموقع coderoutebh.com. وباستخدامك للموقع فإنك توافق عليها."] },
+      { heading: "خدماتنا", body: ["يصف هذا الموقع خدماتنا بشكل عام. وأي مشروع ننفّذه لك يخضع لعرض أو اتفاقية مكتوبة منفصلة تحدد نطاق العمل والسعر والجدول الزمني وشروط الدفع والملكية. وإذا اختلفت تلك الاتفاقية عن هذه الشروط، تُطبَّق الاتفاقية."] },
+      { heading: "الأسعار والمدد الزمنية", body: ["المدد الزمنية والأمثلة والأوصاف الواردة في هذا الموقع إرشادات عامة وليست عرضاً ملزماً. ولا يصبح السعر أو الجدول الزمني ملزماً إلا بعد ورودهما في عرض مكتوب يوافق عليه الطرفان."] },
+      { heading: "محتوانا وعلامتنا التجارية", body: ["المحتوى والتصميم والشعار واسم CodeRoute في هذا الموقع ملك لنا. يمكنك مشاركة روابط الموقع، لكن لا يجوز نسخ محتواه أو علامته التجارية أو إعادة استخدامهما دون إذن مكتوب منا. أما مشاريع العملاء المعروضة هنا فهي ملك لأصحابها وتُعرض بإذنهم."] },
+      { heading: "استخدام الموقع", body: ["لا تُسئ استخدام الموقع، كأن تحاول اختراق أمانه أو إثقاله بالطلبات أو إرسال رسائل مزعجة عبر نموذج التواصل."] },
+      { heading: "روابط لمواقع أخرى", body: ["يحتوي الموقع على روابط لمواقع أخرى، مثل مشاريع نفذناها وصفحاتنا على وسائل التواصل الاجتماعي. ولسنا مسؤولين عن محتواها أو عن طريقة تعاملها مع بياناتك."] },
+      { heading: "إخلاء المسؤولية", body: ["نحرص على أن يكون الموقع دقيقاً ومتاحاً، لكنه يُقدَّم كما هو، ولا نضمن أن يكون خالياً من الأخطاء أو متاحاً دون انقطاع في كل الأوقات."] },
+      { heading: "حدود المسؤولية", body: ["في الحدود التي يسمح بها القانون، لسنا مسؤولين عن أي خسارة تنتج عن استخدام هذا الموقع. ولا يقيّد ذلك أي شيء متفق عليه في اتفاقية مشروع موقّعة."] },
+      { heading: "الخصوصية", body: ["توضح سياسة الخصوصية طريقة تعاملنا مع البيانات التي ترسلها إلينا."] },
+      { heading: "التعديلات", body: ["قد نحدّث هذه الشروط من وقت لآخر، ويوضح التاريخ في أعلى الصفحة أحدث نسخة."] },
+      { heading: "التواصل", body: ["لديك سؤال حول هذه الشروط؟ تواصل معنا عبر البيانات الموجودة في الصفحة الرئيسية."] },
+    ],
+  },
   privacy: {
     title: "سياسة الخصوصية",
+    description: "كيف تتعامل CodeRoute مع البيانات التي ترسلها عبر هذا الموقع.",
     updated: "آخر تحديث: أكتوبر 2026",
     back: "العودة إلى الصفحة الرئيسية",
     sections: [

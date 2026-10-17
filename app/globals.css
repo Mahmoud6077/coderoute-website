@@ -813,7 +813,32 @@ html[dir="rtl"] .ltr-input {
   padding-block: 10px;
 }
 
-/* ---------- Privacy page ---------- */
+.footer-social {
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-social a {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgb(201 209 224 / 0.25);
+  color: #c9d1e0;
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.footer-social a:hover {
+  color: #ffffff;
+  border-color: var(--brand);
+  background: rgb(240 112 74 / 0.15);
+}
+
+/* ---------- Legal and 404 pages ---------- */
 .page {
   max-width: 760px;
   padding-block: 56px 88px;
@@ -842,6 +867,105 @@ html[dir="rtl"] .ltr-input {
   font-weight: 700;
   color: var(--brand-text);
   padding-block: 10px;
+}
+
+.not-found {
+  padding-block: 96px 120px;
+}
+
+.not-found-code {
+  font-size: clamp(72px, 14vw, 128px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -4px;
+  color: var(--brand-text);
+}
+
+.not-found h1 {
+  margin-top: 16px;
+}
+
+.not-found .btn {
+  margin-top: 28px;
+}
+
+/* ---------- Hero keyword line ---------- */
+.hero-eyebrow {
+  margin-bottom: 18px;
+}
+
+/* ---------- FAQ ---------- */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faq-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-q {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.faq-icon {
+  position: relative;
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: var(--chip-bg);
+}
+
+.faq-icon::before,
+.faq-icon::after {
+  content: "";
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 12px;
+  height: 2px;
+  margin: -1px 0 0 -6px;
+  border-radius: 2px;
+  background: var(--brand-text);
+  transition: transform 0.2s ease;
+}
+
+.faq-icon::after {
+  transform: rotate(90deg);
+}
+
+.faq-item[open] .faq-icon::after {
+  transform: rotate(0deg);
+}
+
+.faq-item .text {
+  margin-top: 0;
+  padding: 0 24px 22px;
+}
+
+.faq-item summary:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 16px;
 }
 
 @media (max-width: 640px) {
@@ -998,6 +1122,7 @@ html[lang="ar"] .work-type {
   }
 }
 
+.intro .hero-eyebrow,
 .intro .h1,
 .intro .lead,
 .intro .actions,
@@ -1110,6 +1235,7 @@ html[lang="ar"] .work-type {
     transition: none;
     animation: none;
   }
+  .intro .hero-eyebrow,
   .intro .h1,
   .intro .lead,
   .intro .actions,

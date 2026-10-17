@@ -1,3 +1,4 @@
+import { headers } from "next/headers";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import QRCode from "qrcode";
@@ -12,6 +13,17 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
   const t = getDictionary(lang);
+  const nonce = (await headers()).get("x-nonce") ?? undefined;
+  const faqData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    inLanguage: lang,
+    mainEntity: t.faq.items.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
 
   const demoUrl = site.demoWhatsapp ? `https://wa.me/${site.demoWhatsapp}` : null;
   // Generated on the server from our own setting, so the markup is safe to inline.
@@ -23,6 +35,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
     <>
       <section className="container hero split center intro">
         <div>
+          <p className="eyebrow hero-eyebrow">{t.hero.eyebrow}</p>
           <h1 className="h1">
             {t.hero.titleStart} <span className="accent">{t.hero.titleAccent}</span>
           </h1>
@@ -167,6 +180,31 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         </div>
         <div className="prose" data-reveal>
           {t.about.paragraphs.map((p) => <p key={p}>{p}</p>)}
+        </div>
+      </section>
+
+      <section id="faq" className="band-tint">
+        <div className="container section split">
+        <div>
+          <div className="eyebrow" data-reveal>{t.faq.eyebrow}</div>
+          <h2 className="h2" data-reveal>{t.faq.title}</h2>
+        </div>
+        <div className="faq-list">
+          {t.faq.items.map((item) => (
+            <details className="faq-item" key={item.q} data-reveal>
+              <summary>
+                <h3 className="faq-q">{item.q}</h3>
+                <span className="faq-icon" aria-hidden="true" />
+              </summary>
+              <p className="text">{item.a}</p>
+            </details>
+          ))}
+        </div>
+        <script
+          type="application/ld+json"
+          nonce={nonce}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqData).replace(/</g, "\\u003c") }}
+        />
         </div>
       </section>
 

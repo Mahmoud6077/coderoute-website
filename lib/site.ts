@@ -14,5 +14,12 @@ export const site = {
   email: (process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "").trim(),
 };
 
+// Public company profiles, shown in the footer and listed for search engines.
+export const social = {
+  linkedin: "https://www.linkedin.com/company/coderoutebh/",
+  instagram: "https://www.instagram.com/coderoutebh/",
+  facebook: "https://www.facebook.com/profile.php?id=61595017511713",
+} as const;
+
 export const needOptions = ["assistant", "automation", "website", "app", "unsure"] as const;
 export type Need = (typeof needOptions)[number];
